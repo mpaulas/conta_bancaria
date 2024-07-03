@@ -1,9 +1,42 @@
 import readlinesync = require("readline-sync");
 import { colors } from "./src/util/color";
+import { conta } from "./src/util/model/Conta";
 
 export function main() {
 
     let opcao: number;
+
+    //Novas Instâncias da Classe Conta
+    const c1: conta = new conta(1, 1234, 1, "Joana Rena", 800000.00);
+    const c2: conta = new conta(2, 1234, 2, "Lorena Rochana", 600000.00);
+
+    c1.visualizar();
+    c2.visualizar();
+
+    console.log(`\nO saldo da conta 01 é: ${c1.saldo}`);
+
+    //Atribuindo um novo valor a conta 2
+    c2.saldo = 90.00;
+
+    //Visualizando saldo da conta c2 após atualizar valor
+    console.log(`\nO saldo da conta 02 é: ${c2.saldo}`);
+
+    //Saque das contas
+    console.log(`\nSacar 10000000.00 reais da conta C1: ${c1.sacar(100)}`);//true
+    c1.visualizar();
+
+    console.log(`\nSacar 100 reais da conta C2: ${c2.sacar(100)}`); //false
+    c2.visualizar();
+
+    //Depositar nas contas
+    console.log(`\nDepositar 25.99 reais na conta C1: `);
+    c1.depositar(25.99);
+    c1.visualizar();
+
+    console.log(`\nDepositar 1000000.59 reais na conta C2: `);
+    c2.depositar(1000000.59);
+    c2.visualizar();
+
 
     while (true) {
         console.log(colors.bg.black, colors.fg.yellowstrong);
@@ -25,8 +58,7 @@ export function main() {
         console.log("                                                     ");
         console.log("*****************************************************");
         console.log("                                                     ",
-            colors.reset
-        );
+            colors.reset);
 
         console.log("Entre com a opção desejada: ");
         opcao = readlinesync.questionInt("");

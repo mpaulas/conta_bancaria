@@ -92,11 +92,11 @@ export class conta{
  
         switch(this._tipo){
             case 1:
-                tipo = "Conta corrente";
+                tipo = "Conta Corrente";
             break;
  
             case 2:
-                tipo = "Conta poupanca";
+                tipo = "Conta Poupanca";
                 break
         }
         console.log(`\n***********************************`)

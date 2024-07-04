@@ -1,6 +1,8 @@
 import readlinesync = require("readline-sync");
 import { colors } from "./src/util/color";
 import { conta } from "./src/util/model/Conta";
+import { contaCorrente } from "./src/util/model/contaCorrente";
+import { contaPoupanca } from "./src/util/model/contaPoupanca";
 
 export function main() {
 
@@ -37,6 +39,26 @@ export function main() {
     c2.depositar(1000000.59);
     c2.visualizar();
 
+    //Novas instancias da classe contaCorrente
+    const cc1: contaCorrente = new contaCorrente(3, 1234, 1, "Joana Rena", 1000000.29, 1000000000.55);
+    const cc2: contaCorrente = new contaCorrente(4, 1234, 1, "Lorena Rochana", 1000.00, 100.08);
+
+    cc1.visualizar();
+    cc2.visualizar();
+
+    console.log(`\nSaque de R$25.00 na Conta CC1: ${cc1.sacar(25.00)}`);
+    console.log(`\nSaque de R$1500.00 na Conta CC2: ${cc1.sacar(1500.00)}`);
+
+    console.log(`\nDepositar 3000.99 reais na conta C2: `);
+    cc2.depositar(3000.99);
+    cc2.visualizar();
+
+     //Novas instancias da classe contaPoupanca
+     const cp1: contaPoupanca = new contaPoupanca(5, 1234, 1, "Rena Jo", 200.00, 24);
+     const cp2: contaPoupanca = new contaPoupanca(6, 1234, 1, "Rochana Lo", 350.00, 16);
+ 
+     cp1.visualizar();
+     cp2.visualizar();
 
     while (true) {
         console.log(colors.bg.black, colors.fg.yellowstrong);

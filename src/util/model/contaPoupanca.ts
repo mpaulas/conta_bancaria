@@ -1,6 +1,9 @@
-import { conta } from "./Conta";
+import { Conta } from "./Conta";
 
-export class contaPoupanca extends conta{
+export class contaPoupanca extends Conta{
+	public teste(): void {
+		throw new Error("Method not implemented.");
+	}
 
     private _aniversario: number;
 

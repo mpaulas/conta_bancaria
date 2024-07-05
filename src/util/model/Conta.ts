@@ -1,4 +1,4 @@
-export class conta{
+export abstract class Conta{
     // Definir atributos da Classe (caracteristicas do objeto)
     // Privado tem que ter (_) na frente
     private _numero: number;
@@ -109,5 +109,8 @@ export class conta{
         console.log(`Saldo da conta: ${this._saldo.toFixed(2)}`);
      
     }
-
+    
+    /*
+    //Exemplo de Metódo Abstrato
+    public abstract teste(): void; */
 }

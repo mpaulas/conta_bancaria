@@ -1,6 +1,9 @@
-import { conta } from "./Conta";
+import { Conta } from "./Conta";
 
-export class contaCorrente extends conta{
+export class contaCorrente extends Conta{
+    public teste(): void {
+        throw new Error("Method not implemented.");
+    }
 
     private _limite: number;
 
@@ -37,5 +40,6 @@ export class contaCorrente extends conta{
         
     }
 
+    
 
 }

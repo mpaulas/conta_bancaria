@@ -8,14 +8,14 @@ import { read } from "fs";
 
 export function main() {
 
-    let opcao, numero, agencia, tipo, saldo, limite, aniversario: number;
+    let opcao, numero, agencia, tipo, saldo, limite, aniversario, valor, numeroDestino: number;
     let titular: string;
     const tipoContas=[`Conta Corrente`, `Conta Poupança`];
     
     const contas: ContaController = new ContaController();
 
     //Novas Instancias Classe ContaCorrente (objetos)
-    contas.cadastrar(new contaCorrente(contas.gerarNumero(), 1234, 1, "Amanda ", 1000.00,1000.00));
+    contas.cadastrar(new contaCorrente(contas.gerarNumero(), 1234, 1, "Amanda ", 10000.00,1000.00));
     contas.cadastrar(new contaCorrente(contas.gerarNumero(), 4567, 1, "João ", 10000.00,10000.00));
 
     //Novas Instancias Classe ContaPoupança (objetos)
@@ -158,16 +158,44 @@ export function main() {
                 break;
             case 6:
                 console.log("\n\nSaque\n\n");
+                
+                console.log("Digite o número da conta: ")
+                numero=readlinesync.questionInt("");
+
+                console.log("Digite o valor do saque: ")
+                valor = readlinesync.questionFloat("");
+
+                contas.sacar(numero, valor);
 
                 keyPress();
                 break;
             case 7:
                 console.log("\n\nDepósito\n\n");
 
+                console.log("Digite o número da conta: ")
+                numero=readlinesync.questionInt("");
+
+                console.log("Digite o valor do Deposito: ")
+                valor = readlinesync.questionFloat("");
+
+                contas.depositar(numero, valor);
+
                 keyPress();
                 break;
             case 8:
                 console.log("\n\nTransferência entre Contas\n\n");
+
+                console.log("Digite o número da Conta de Origem: ")
+                numero = readlinesync.questionInt("");
+
+                console.log("Digite o número da Conta de Destino: ")
+                numeroDestino = readlinesync.questionInt("");
+
+
+                console.log("Digite o valor da tranferencia: ")
+                valor = readlinesync.questionFloat("");
+
+                contas.transferir(numero, numeroDestino, valor);
 
                 keyPress();
                 break;

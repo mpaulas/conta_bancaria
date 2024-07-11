@@ -9,7 +9,15 @@ export class ContaController implements ContaRepository{
     //Controlar os nº das Contas
     public numero: number = 0;
 
+    procurarPorTitular(titular: string): void {
+       
+        let buscaPorTitular = this.listaContas.filter( c => 
+            c.titular.toUpperCase().includes(titular.toUpperCase())
+       );
 
+       buscaPorTitular.forEach( conta => conta.visualizar());
+       
+    }
 
     procurarPorNumero(numero: number): void {
         let buscaConta = this.buscarNoArray(numero);
